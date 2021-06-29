@@ -18,7 +18,9 @@ public class Main {
         JPanel vehiclesPanel = new JPanel();
         vehiclesPanel.setLayout(new GridLayout(10, 1));
         JPanel aboutPanel = new JPanel();
+        JPanel searchPanel = new JPanel();
         tabbedPane.addTab("Vehicles", vehiclesPanel);
+        tabbedPane.addTab("Search", searchPanel);
         tabbedPane.addTab("About", aboutPanel);
         frame.getContentPane().add(tabbedPane);
 
@@ -43,10 +45,12 @@ public class Main {
         ownerAgePanel.add(ownerDayBox);
 
         JRadioButton carRadio = new JRadioButton("Car");
+        JRadioButton superCarRadio = new JRadioButton("Supercar");
         JRadioButton motoRadio = new JRadioButton("Motorcycle");
         JRadioButton truckRadio = new JRadioButton("Truck");
         JPanel radioPanel = new JPanel();
         radioPanel.add(carRadio);
+        radioPanel.add(superCarRadio);
         radioPanel.add(motoRadio);
         radioPanel.add(truckRadio);
 
@@ -56,13 +60,13 @@ public class Main {
         brandModelPanel.add(brandMenu);
         brandModelPanel.add(modelMenu);
 
-        JTextField yearBox = new JTextField("yearBox", 10);
-        JTextField monthBox = new JTextField("monthBox", 10);
-        JTextField dayBox = new JTextField("dayBox", 10);
+        JTextField vehicleYearBox = new JTextField("vehicleYearBox", 10);
+        JTextField vehicleMonthBox = new JTextField("vehicleMonthBox", 10);
+        JTextField vehicleDayBox = new JTextField("vehicleDayBox", 10);
         JPanel registrationDatePanel = new JPanel();
-        registrationDatePanel.add(yearBox);
-        registrationDatePanel.add(monthBox);
-        registrationDatePanel.add(dayBox);
+        registrationDatePanel.add(vehicleYearBox);
+        registrationDatePanel.add(vehicleMonthBox);
+        registrationDatePanel.add(vehicleDayBox);
 
         JTextField horsePowerBox = new JTextField("horsePowerBox", 10);
         JPanel horsePowerAndPricePanel = new JPanel();
