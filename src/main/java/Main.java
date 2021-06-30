@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,14 +10,13 @@ public class Main {
         MyFrame frame = new MyFrame(width, height);
         frame.setSize(height, width);
         frame.setTitle("Regitra");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // set grid layout for the frame
         frame.getContentPane().setLayout(new GridLayout(1, 1));
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
-        // add tab with title
+
         JPanel vehiclesPanel = new JPanel();
         vehiclesPanel.setLayout(new GridLayout(10, 1));
+
         JPanel aboutPanel = new JPanel();
         JPanel searchPanel = new JPanel();
         tabbedPane.addTab("Vehicles", vehiclesPanel);
@@ -28,7 +28,6 @@ public class Main {
         aboutPanel.add(aboutLabel);
 
         JLabel vehiclesLabel = new JLabel("Vehicle registration");
-
 
         JPanel ownerNamePanel = new JPanel();
         JTextField ownerNameBox = new JTextField("ownerNameBox", 10);
@@ -99,6 +98,18 @@ public class Main {
         vehiclesPanel.add(horsePowerAndPricePanel);
         vehiclesPanel.add(seatsAndNumberPlatePanel);
         vehiclesPanel.add(buttonPanel);
+
+        /////////////////////////////////////////////////////////////
+
+        JLabel test = new JLabel("");
+        ArrayList<Car> cars = new ArrayList<Car>();
+        Car vehicle1 = new Car("Opel", "Astra", 120, 550.0,
+                4, "DMA954", 1.0);
+
+        cars.add(vehicle1);
+        test.setText(vehicle1.getId() + " " + vehicle1.getBrand() + " " + vehicle1.getModel() + " " + vehicle1.getNumberPlate());
+        searchPanel.add(test);
+        /////////////////////////////////////////////////////////////
 
         frame.setVisible(true);
     }
