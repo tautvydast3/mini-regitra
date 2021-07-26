@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.util.ArrayList;
 
 abstract class Vehicle {
     //atributai
@@ -12,8 +12,27 @@ abstract class Vehicle {
     private String numberPlate;
     private Double taxRate;
 
-    public Vehicle(String brand, String model, Integer horsePower, Double price, Integer seats, String numberPlate, Double taxRate) {
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    private static ArrayList<Vehicle> vehicleArrayList;
+
+//    public Vehicle(String brand, String model, Integer horsePower, Double price, Integer seats, String numberPlate, Double taxRate) {
+//    this.vehicleArrayList = new ArrayList<Vehicle>();
+//    }
+
+    public ArrayList<Vehicle> getVehicleArrayList() {return vehicleArrayList;
     }
+
+    public void setVehicleArrayList(ArrayList<Vehicle> vehicleArrayList) {
+        this.vehicleArrayList = vehicleArrayList;
+    }
+
+//    this.vehicleArrayList = new ArrayList<Vehicle>();
+
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+
 
     //#region Getteriai ir Setteriai
     public Integer getId() {
@@ -90,7 +109,7 @@ abstract class Vehicle {
     //#endregion
 
     // Konstruktorius
-    public Vehicle(String brand, String model, LocalDate firstRegistrationDate,
+    public Vehicle(String brand, String model,
                    Integer horsePower, Double price, Integer seats, String numberPlate,
                    Double taxRate) {
         this.id = HelperFunctions.generateNewId();
@@ -103,4 +122,18 @@ abstract class Vehicle {
         this.numberPlate = numberPlate;
         this.taxRate = taxRate;
     }
+////////////////////////////////////////////////////////////////////////////
+
+    public static String printCar(ArrayList<Vehicle> vehicleArrayList) {
+        String x = null;
+        for (Vehicle i : vehicleArrayList) {
+            System.out.println(i.getId() + i.getBrand());
+
+            x = i.getBrand()+""+i.getModel();
+        }
+        return x;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
 }
+

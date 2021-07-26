@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static <cars> void main(String[] args) {
         int width = 600;
         int height = 600;
 
@@ -101,16 +103,49 @@ public class Main {
 
         /////////////////////////////////////////////////////////////
 
-        JLabel test = new JLabel("");
+        JLabel test = new JLabel();
+        test.setSize(width, height / 4);
+        test.setVisible(true);
+        test.setText("labas is main");
         ArrayList<Car> cars = new ArrayList<Car>();
         Car vehicle1 = new Car("Opel", "Astra", 120, 550.0,
                 4, "DMA954", 1.0);
 
         cars.add(vehicle1);
-        test.setText(vehicle1.getId() + " " + vehicle1.getBrand() + " " + vehicle1.getModel() + " " + vehicle1.getNumberPlate());
-        searchPanel.add(test);
+
+
+        ArrayList<Vehicle> vehicleArrayList = new ArrayList<>();
+        Vehicle vehicle2 = new Vehicle("Ford", "Ka", 90, 550.0,
+                4, "dsl996", 1.0) {
+        };
+        Vehicle vehicle3 = new Vehicle("Reno", "Ka", 90, 550.0,
+                4, "dsl996", 1.0) {
+        };
+        vehicleArrayList.add(vehicle2);
+        vehicleArrayList.add(vehicle3);
+
+
+
+final String tekstas = "";
+
+
+        btnCreate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+//                rodo jlabel texta nustatyta main metode
+
+//                System.out.println(test.getText());
+//                searchPanel.add(test);
+
+//                bandau nustayti test texta per Car klases metoda
+                test.setText(Vehicle.printCar(vehicleArrayList));
+                searchPanel.add(test);
+            }
+        });
+
         /////////////////////////////////////////////////////////////
 
         frame.setVisible(true);
     }
+
+
 }
